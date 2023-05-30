@@ -87,11 +87,25 @@
         <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
         <textarea id="message" name="message" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
       </div>
-      <a href="https://api.whatsapp.com/send?phone=919038212876&amp;text=Link%3A%0Ahttps%3A%2F%2Ffb.me%2F7vtQcMHV5%0A%0AI%20saw%20this%20on%20Facebook...&amp;app=facebook&amp;fbclid=IwAR3OLBBJ4IcbKrX53C5BrLXfF9tIx3yeT2Q8q8iEj9aweLyWD74OPXSQDHI" target="_blank" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send WhatsApp Message</a>
+      <a href="#" id="sendWhatsApp" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send WhatsApp Message</a>
       <p class="text-xs text-gray-500 mt-3"></p>
     </div>
   </div>
 </section>
+
+<script>
+  document.getElementById("sendWhatsApp").addEventListener("click", function() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var message = document.getElementById("message").value;
+
+    var encodedMessage = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\nMessage: " + message);
+    var whatsappLink = "https://api.whatsapp.com/send?phone=919038212876&text=" + encodedMessage;
+
+    window.location.href = whatsappLink;
+  });
+</script>
+
 
   
 
